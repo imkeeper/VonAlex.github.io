@@ -91,7 +91,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="golang, 设置" />
+  <meta name="keywords" content="golang, flag" />
 
 
 
@@ -107,19 +107,17 @@
 
 
 
-<meta name="description" content="Go 是 Google 开发的一种编译型，可并行化，并具有垃圾回收功能的编程语言。它具有脚本化的语法，支持多种编程范式。Go 最给力的地方就是原生的并发编程支持。">
+<meta name="description" content="命令行参数常用来为命令行程序指定选项。比如在 wc -l 命令中 -l 就是命令行参数。 golang 提供了 flag 包来支持基本的命令行参数解析。">
 <meta name="keywords" content="quickstart-go">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小白学golang">
-<meta property="og:url" content="https://vonalex.github.io/2017/03/18/小白学golang/index.html">
+<meta property="og:title" content="go标准库之flag包">
+<meta property="og:url" content="https://vonalex.github.io/2017/06/04/go标准库之flag包/index.html">
 <meta property="og:site_name" content="Happen's Memo">
-<meta property="og:description" content="Go 是 Google 开发的一种编译型，可并行化，并具有垃圾回收功能的编程语言。它具有脚本化的语法，支持多种编程范式。Go 最给力的地方就是原生的并发编程支持。">
-<meta property="og:image" content="https://vonalex.github.io/images/golang.jpg">
-<meta property="og:updated_time" content="2017-04-07T15:12:23.000Z">
+<meta property="og:description" content="命令行参数常用来为命令行程序指定选项。比如在 wc -l 命令中 -l 就是命令行参数。 golang 提供了 flag 包来支持基本的命令行参数解析。">
+<meta property="og:updated_time" content="2017-06-04T18:23:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小白学golang">
-<meta name="twitter:description" content="Go 是 Google 开发的一种编译型，可并行化，并具有垃圾回收功能的编程语言。它具有脚本化的语法，支持多种编程范式。Go 最给力的地方就是原生的并发编程支持。">
-<meta name="twitter:image" content="https://vonalex.github.io/images/golang.jpg">
+<meta name="twitter:title" content="go标准库之flag包">
+<meta name="twitter:description" content="命令行参数常用来为命令行程序指定选项。比如在 wc -l 命令中 -l 就是命令行参数。 golang 提供了 flag 包来支持基本的命令行参数解析。">
 
 
 
@@ -147,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="https://vonalex.github.io/2017/03/18/小白学golang/"/>
+  <link rel="canonical" href="https://vonalex.github.io/2017/06/04/go标准库之flag包/"/>
 
 
 
 
 
-  <title> 小白学golang | Happen's Memo </title>
+  <title> go标准库之flag包 | Happen's Memo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +300,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://vonalex.github.io/2017/03/18/小白学golang/">
+    <link itemprop="mainEntityOfPage" href="https://vonalex.github.io/2017/06/04/go标准库之flag包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Happen">
@@ -323,7 +321,7 @@
             
             
               
-                小白学golang
+                go标准库之flag包
               
             
           </h2>
@@ -338,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T21:09:49+08:00">
-                2017-03-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T15:51:29+08:00">
+                2017-06-04
               </time>
             
 
@@ -354,8 +352,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-07T23:12:23+08:00">
-                2017-04-07
+              <time title="更新于" itemprop="dateModified" datetime="2017-06-05T02:23:40+08:00">
+                2017-06-05
               </time>
             
           </span>
@@ -391,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/18/小白学golang/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/小白学golang/" itemprop="commentCount"></span>
+                <a href="/2017/06/04/go标准库之flag包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/04/go标准库之flag包/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +398,7 @@
 
           
           
-             <span id="/2017/03/18/小白学golang/" class="leancloud_visitors" data-flag-title="小白学golang">
+             <span id="/2017/06/04/go标准库之flag包/" class="leancloud_visitors" data-flag-title="go标准库之flag包">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -434,27 +432,26 @@
       
 
       
-        <blockquote>
-<p>Go 是 Google 开发的一种编译型，可并行化，并具有垃圾回收功能的编程语言。它具有脚本化的语法，支持多种编程范式。Go 最给力的地方就是原生的并发编程支持。</p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p>当然，缺点也是有的，语法糖没有 Python 和 Ruby 多，目前运行速度不及 C，但这正在改善。</p>
-</blockquote>
-<p>Go 的安装包可以在<a href="https://golang.org/" target="_blank" rel="external">官方网站</a>上下载,不过需要梯子。所以，这里有一个 <a href="http://www.golangtc.com/" target="_blank" rel="external">golang 中国网站</a>提供了下载。</p>
-<p><center><img src="/images/golang.jpg" width="250"></center></p>
-<h2 id="几个环境变量"><a href="#几个环境变量" class="headerlink" title="几个环境变量"></a>几个环境变量</h2><p><code>GOROOT</code> =&gt; Go 的当前安装目录，一般为 <code>/usr/local/go</code><br><code>GOPATH</code> =&gt; Go 的工作区的集合，以冒号做分割<br><code>GOBIN</code> =&gt; 存放 Go 的可执行文件的目录<br>在修改 <code>PATH</code> 环境变量时，把 <code>$GOROOT/bin:$GOBIN</code> 最后加上。</p>
-<h2 id="工作区目录结构"><a href="#工作区目录结构" class="headerlink" title="工作区目录结构"></a>工作区目录结构</h2><p>项目工作区的文件目录树如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">├── bin 存放当前工作区中 go 程序的可执行文件</div><div class="line">├── pkg/平台相关目录 存放归档文件（以.a为后缀）</div><div class="line">└── src 放源码文件</div></pre></td></tr></table></figure>
-<p><strong>注意：</strong><br>当环境变量 GOBIN 已有效设置时，这个目录就没意义了；<br>当 GOPATH 中包含多个工作区路径时，必须设置 GOBIN，否则无法成功安装 go 程序的可执行文件。</p>
-<h2 id="源码文件分类"><a href="#源码文件分类" class="headerlink" title="源码文件分类"></a>源码文件分类</h2><p>Go 源码文件以 <code>.go</code> 为后缀。<br>分为三类：命令源码文件、库源码文件和测试源码文件。</p>
-<p><strong>命令源码文件</strong>：声明自己属于 <code>main</code> 代码包，包含无参数声明和结果声明的 <code>main</code> 函数。被安装后，相应的可执行文件被存放到 GOBIN 指定的目录下，或者是当前工作区的 bin 目录下。<br>它其实是 Go 程序的入口。<br><strong>库源码文件</strong>：不具备上面两条性质的源码文件。被安装后，相应的归档文件被存放到<code>当前工作区目录/pkg/平台相关目录/</code>下。<br><strong>测试源码文件</strong>：不具备2个特征，但是以 <code>_test.go</code> 为后缀。</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">go run 接收一个命令源码文件或者若干个库源码文件为参数 </div><div class="line"></div><div class="line">    -a 强制编译相关代码，无论是否最新</div><div class="line">    -n 打印编译过程所需运行的命令，但不真正运行</div><div class="line">    -x 打印编译过程所需运行的命令，运行</div><div class="line">    -p n 并行编译</div><div class="line">    -v 列出被编译的代码包名</div><div class="line">    -work 显示编译时创建的临时目录名，不删除</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">go build 编译</div><div class="line">    -a</div></pre></td></tr></table></figure>
-<p>编译库源码文件，没有任何结果，编译命令源码文件，则会出现可执行文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go install 编译并安装</div></pre></td></tr></table></figure>
-<p>安装代码包会在<code>当前工作区/pkg/相关平台/</code>下生成归档文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">go get 从远程仓库下载并安装代码</div><div class="line">   -d 只下载，不安装</div><div class="line">   -fix 下载后先修正，再编译安装</div><div class="line">   -u 更新已有的代码包及其依赖包</div></pre></td></tr></table></figure>
+        <p>命令行参数常用来为命令行程序指定选项。比如在 <code>wc -l</code> 命令中 <code>-l</code> 就是命令行参数。</p>
+<p>golang 提供了 flag 包来支持基本的命令行参数解析。<br><a id="more"></a></p>
+<h3 id="命令行语法"><a href="#命令行语法" class="headerlink" title="命令行语法"></a>命令行语法</h3><p>命令行语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-flag</div><div class="line">-flag=x</div><div class="line">-flag x  // non-boolean flags only</div></pre></td></tr></table></figure>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="定义-flag-参数"><a href="#定义-flag-参数" class="headerlink" title="定义 flag 参数"></a>定义 flag 参数</h4><p><strong>方法一</strong>：<br>通过 <code>flag.Xxx()</code> 方法返回一个相应的指针，举几个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wordPtr := flag.String(&quot;word&quot;, &quot;foo&quot;, &quot;a string&quot;)</div><div class="line">numbPtr := flag.Int(&quot;numb&quot;, 42, &quot;an int&quot;)</div><div class="line">boolPtr := flag.Bool(&quot;fork&quot;, false, &quot;a bool&quot;)</div></pre></td></tr></table></figure>
+<p>使用形式为 <code>flag.Type(name, defValue, usage)</code></p>
+<p><strong>方法二</strong>：<br>通过 <code>flag.XxxVar()</code> 方法将 flag 绑定到一个变量，该种方式返回值类型，举个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var svar string</div><div class="line">flag.StringVar(&amp;svar, &quot;svar&quot;, &quot;bar&quot;, &quot;a string var&quot;)</div></pre></td></tr></table></figure>
+<p>使用形式为 <code>flag.TypeVar(&amp;flagvar, name, defValue, usage)</code><br><strong>方法三</strong>：<br>通过 <code>flag.Var()</code> 绑定自定义类型，自定义类型需要实现 <code>Value</code> 接口(<code>Receives</code>必须为指针)，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">type Value interface &#123;</div><div class="line">        String() string</div><div class="line">        Set(string) error</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用方式是 <code>flag.Var(&amp;flagvar, name, usage)</code></p>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>调用 <code>flag.Parse()</code> 解析命令行参数到定义的flag</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>还可通过 <code>flag.Args()</code>, <code>flag.Arg(i)</code> 来获取非 flag 命令行参数</p>
+<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight golang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"><span class="keyword">import</span> <span class="string">"flag"</span></div><div class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></div><div class="line"><span class="keyword">import</span> <span class="string">"strconv"</span></div><div class="line"><span class="keyword">type</span> percentage <span class="keyword">float32</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *percentage)</span> <span class="title">Set</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">error</span></span> &#123;</div><div class="line">  v, err := strconv.ParseFloat(s, <span class="number">32</span>)</div><div class="line">  *p = percentage(v)</div><div class="line">  <span class="keyword">return</span> err</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *percentage)</span> <span class="title">String</span><span class="params">()</span> <span class="title">string</span></span> &#123; <span class="keyword">return</span> fmt.Sprintf(<span class="string">"%f"</span>, *p) &#125;</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">  namePtr := flag.String(<span class="string">"name"</span>, <span class="string">"lyh"</span>, <span class="string">"user's name"</span>)</div><div class="line">  agePtr := flag.Int(<span class="string">"age"</span>, <span class="number">22</span>, <span class="string">"user's age"</span>)</div><div class="line">  vipPtr := flag.Bool(<span class="string">"vip"</span>, <span class="literal">true</span>, <span class="string">"is a vip user"</span>)</div><div class="line">  <span class="keyword">var</span> email <span class="keyword">string</span></div><div class="line">  flag.StringVar(&amp;email, <span class="string">"email"</span>, <span class="string">"lyhopq@gmail.com"</span>, <span class="string">"user's email"</span>)</div><div class="line">  <span class="keyword">var</span> pop percentage</div><div class="line">  flag.Var(&amp;pop, <span class="string">"pop"</span>, <span class="string">"popularity"</span>)</div><div class="line">  flag.Parse()</div><div class="line">  others := flag.Args()</div><div class="line">  fmt.Println(<span class="string">"name:"</span>, *namePtr)</div><div class="line">  fmt.Println(<span class="string">"age:"</span>, *agePtr)</div><div class="line">  fmt.Println(<span class="string">"vip:"</span>, *vipPtr)</div><div class="line">  fmt.Println(<span class="string">"pop:"</span>, pop)</div><div class="line">  fmt.Println(<span class="string">"email:"</span>, email)</div><div class="line">  fmt.Println(<span class="string">"other:"</span>, others)</div><div class="line">&#125;</div><div class="line">$ ./command-line-flags</div><div class="line">name: lyh</div><div class="line">age: <span class="number">22</span></div><div class="line">vip: <span class="literal">true</span></div><div class="line">email: lyhopq@gmail.com</div><div class="line">other: []</div><div class="line">$ ./command-line-flags -name golang -age <span class="number">4</span> -vip=<span class="literal">true</span> -pop <span class="number">99</span> 简洁 高并发 等等</div><div class="line">name: golang</div><div class="line">age: <span class="number">4</span></div><div class="line">vip: <span class="literal">true</span></div><div class="line">pop: <span class="number">99</span></div><div class="line">email: lyhopq@gmail.com</div><div class="line">other: [简洁 高并发 等等]</div><div class="line">$ ./command-line-flags -h</div><div class="line">Usage of ./command-line-flags:</div><div class="line"> -age=<span class="number">22</span>: user<span class="string">'s age</span></div><div class="line"> -email="lyhopq@gmail.com": user's email</div><div class="line"> -name=<span class="string">"lyh"</span>: user<span class="string">'s name</span></div><div class="line"> -pop=0.0: popularity</div><div class="line"> -vip=true: is a vip user</div></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="http://faberliu.github.io/2014/11/12/Golang-flag%E5%8C%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3-%E4%B8%80/" target="_blank" rel="external">Golang flag包使用详解(一)</a></li>
+<li><a href="https://gobyexample.com/command-line-flags" target="_blank" rel="external">Go by Example: Command-Line Flags</a></li>
+<li><a href="https://www.teakki.com/p/57df64d9da84a0c4533815ee" target="_blank" rel="external">Go语言中使用flag包对命令行进行参数解析的方法</a></li>
+</ol>
 
       
     </div>
@@ -497,18 +494,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/02/go依赖管理-govendor/" rel="next" title="go依赖管理--govendor">
-                <i class="fa fa-chevron-left"></i> go依赖管理--govendor
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/12/java第三方包学习之jsoup/" rel="prev" title="java第三方包学习之jsoup">
-                java第三方包学习之jsoup <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/13/Golang工具之present/" rel="prev" title="Golang工具之present">
+                Golang工具之present <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -524,10 +517,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/18/小白学golang/"
-     data-title="小白学golang"
+        <div class="ds-share flat" data-thread-key="2017/06/04/go标准库之flag包/"
+     data-title="go标准库之flag包"
      data-content=""
-     data-url="https://vonalex.github.io/2017/03/18/小白学golang/">
+     data-url="https://vonalex.github.io/2017/06/04/go标准库之flag包/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -554,8 +547,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/18/小白学golang/"
-           data-title="小白学golang" data-url="https://vonalex.github.io/2017/03/18/小白学golang/">
+      <div class="ds-thread" data-thread-key="2017/06/04/go标准库之flag包/"
+           data-title="go标准库之flag包" data-url="https://vonalex.github.io/2017/06/04/go标准库之flag包/">
       </div>
     
   </div>
@@ -690,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#几个环境变量"><span class="nav-number">1.</span> <span class="nav-text">几个环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区目录结构"><span class="nav-number">2.</span> <span class="nav-text">工作区目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码文件分类"><span class="nav-number">3.</span> <span class="nav-text">源码文件分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行语法"><span class="nav-number">1.</span> <span class="nav-text">命令行语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-flag-参数"><span class="nav-number">2.1.</span> <span class="nav-text">定义 flag 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析"><span class="nav-number">2.2.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">2.3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栗子"><span class="nav-number">2.4.</span> <span class="nav-text">栗子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
