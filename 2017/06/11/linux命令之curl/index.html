@@ -114,7 +114,7 @@
 <meta property="og:url" content="https://vonalex.github.io/2017/06/11/linux命令之curl/index.html">
 <meta property="og:site_name" content="Happen's Memo">
 <meta property="og:description" content="curl 命令是一个利用 URL 规则在命令行下工作的文件传输工具。它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称 curl 为下载工具。它支持包括 HTTP、HTTPS、ftp等众多协议，还支持 POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征。做网页处理流程和数据检索自动化，curl 可以祝一臂之力。">
-<meta property="og:updated_time" content="2017-06-11T06:56:46.000Z">
+<meta property="og:updated_time" content="2017-06-11T07:00:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令之curl">
 <meta name="twitter:description" content="curl 命令是一个利用 URL 规则在命令行下工作的文件传输工具。它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称 curl 为下载工具。它支持包括 HTTP、HTTPS、ftp等众多协议，还支持 POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征。做网页处理流程和数据检索自动化，curl 可以祝一臂之力。">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-06-11T14:56:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-06-11T15:00:39+08:00">
                 2017-06-11
               </time>
             
@@ -447,8 +447,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl --cookie &quot;name=xxx;pass=xxx&quot; www.example.com</div></pre></td></tr></table></figure>
 <p><code>-c/--cookie-jar &lt;file&gt;</code> 选项可以将 cookies 保存到指定文件。</p>
 <h4 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h4><p><code>-u/--user &lt;user[:password]&gt;</code> 进行 http/ftp 的认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ curl -u name:password www.example.com</div><div class="line"># 从 ftp 下载文件</div><div class="line">$ curl -O ftp://name:passwd@ip:port/demo/curtain/bbstudy_files/style.css  </div><div class="line"># ftp 上传文件</div><div class="line">$ curl -T test.sql ftp://name:passwd@ip:port/demo/curtain/bbstudy_files/ </div><div class="line">``` </div><div class="line">#### 限速与限额</div><div class="line"> `--limit-rate &lt;rate&gt; ` 选项设置传输速度 </div><div class="line"> 举个栗子：</div></pre></td></tr></table></figure>
-<p>curl URL –limit-rate 50k<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`--max-filesize &lt;bytes&gt;` 选项设置最大下载的文件总量 </div><div class="line"></div><div class="line">举个栗子</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ curl -u name:password www.example.com</div><div class="line"># 从 ftp 下载文件</div><div class="line">$ curl -O ftp://name:passwd@ip:port/demo/curtain/bbstudy_files/style.css  </div><div class="line"># ftp 上传文件</div><div class="line">$ curl -T test.sql ftp://name:passwd@ip:port/demo/curtain/bbstudy_files/ </div><div class="line">``` </div><div class="line"></div><div class="line">#### 限速与限额</div><div class="line"></div><div class="line"> `--limit-rate &lt;rate&gt; ` 选项设置传输速度</div></pre></td></tr></table></figure>
+<p>curl URL –limit-rate 50k<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`--max-filesize &lt;bytes&gt;` 选项设置最大下载的文件总量</div></pre></td></tr></table></figure></p>
 <p> curl URL –max-filesize bytes<br> ```</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>【1】 <a href="http://aiezu.com/article/linux_curl_command.html" target="_blank" rel="external">Linux curl 命令详解</a><br>【2】<a href="http://blog.51yip.com/linux/1049.html" target="_blank" rel="external">linux curl 命令详解，以及实例</a><br>【3】<a href="http://www.ruanyifeng.com/blog/2011/09/curl.html" target="_blank" rel="external">curl网站开发指南</a></p>
 
